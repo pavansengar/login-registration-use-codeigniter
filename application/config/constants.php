@@ -83,3 +83,24 @@ defined('EXIT_USER_INPUT')     OR define('EXIT_USER_INPUT', 7); // invalid user 
 defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
+
+
+/* Set Base URL according to development mode. */
+if ($_SERVER['HTTP_HOST'] == 'localhost' || $_SERVER['HTTP_HOST'] == 'www.localhost' || $_SERVER['HTTP_HOST'] == 'http://localhost') {
+    define("APP_BASE_URL", "http://localhost/pavan/");
+    define("DB_HOST_NAME", "localhost");
+    define("DB_DATABSE_NAME", "ci_db");
+    define("DB_USER_NAME", "root");
+    define("DB_PASSWORD", "");
+    
+    define("ROOT_PATH", $_SERVER['DOCUMENT_ROOT'] . '/pavan/');
+    define("IS_LOCAL_HOST", true);
+} else {
+    define("APP_BASE_URL", "http://yourwebsite.com/");
+    define("DB_HOST_NAME", "host_name");
+    define("DB_DATABSE_NAME", "db_name");
+    define("DB_USER_NAME", "db_user_name");
+    define("DB_PASSWORD", "db_password");
+    define("ROOT_PATH", $_SERVER['DOCUMENT_ROOT'] . '/');
+    define("IS_LOCAL_HOST", false);
+}
