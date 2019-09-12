@@ -71,12 +71,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<h1>Welcome to Login!</h1>
 
 	<div id="body">
-		<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
-
-		<p>Login:</p>
-		<code><a href="<?php echo base_url('login');?>">Login</a></code>
-
-		<p>Registration:</p>
+		<p>Login.</p>
+		<code>
+    		<form action="<?php echo base_url('login/auth_check')?>" method="post" name="frm_login">
+    			Email: <input type="text" name="username" id="username">
+    			Password: <input type="password" name="userpwd" id="userpwd">
+    			<input type="submit" name="btn_login" value="Submit">
+    		</form>
+		</code>
+		<p>If you are not registration then click here:</p>
 		<code><a href="<?php echo base_url('registration');?>">Registration</a></code>
 
 		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
